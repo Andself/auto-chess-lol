@@ -1,9 +1,9 @@
 <template>
   <main id="weaponry" class="weaponry-shell">
     <div class="weaponry-shell-header">
-      <button>All</button>
+      <button @click="showHelp = true">Help</button>
       <h1>云顶之弈 - 装备速查</h1>
-      <button>Help</button>
+      <button @click="showAllList = true">All</button>
     </div>
     <div class="weaponry-shell-content">
 
@@ -55,20 +55,35 @@
         </template>
       </ul>
     </div>
+
+    <!-- all list -->
+    <advanced-list :visible.sync="showAllList" :list="advancedWeaponry" @select="handleAdvancedSelect" />
+    <!-- help -->
+    <app-help :visible.sync="showHelp" />
   </main>
 </template>
 
 <script>
 import baseWeaponry from '@/static/base'
+import advancedWeaponry from '@/static/advanced'
 import dataMap from '@/static/weaponryMap'
+import AdvancedList from '@/components/AdvancedList'
+import AppHelp from '@/components/AppHelp'
 
 export default {
   name: 'weaponry',
+  components: {
+    AdvancedList,
+    AppHelp
+  },
   data () {
     return {
       dataMap,
       baseWeaponry,
-      selected: []
+      advancedWeaponry,
+      selected: [],
+      showAllList: false,
+      showHelp: false
     }
   },
   computed: {
@@ -101,6 +116,12 @@ export default {
     },
     beautify (effects) {
       return effects.replace(/([+\-%0-9])+/g, e => `<span>${e}</span>`)
+    },
+    handleAdvancedSelect (item) {
+      this.selected = item.material.slice()
+      setTimeout(() => {
+        this.showAllList = false
+      }, 100)
     }
   }
 }
@@ -174,7 +195,7 @@ export default {
           width: 48px;
           height: 48px;
           margin: 0 auto;
-          border: 1px solid blue;
+          border: 1px solid #ccc;
           margin-bottom: 12px;
           border-radius: 2px;
           img {
