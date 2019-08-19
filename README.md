@@ -1,29 +1,5 @@
 # auto-chess-lol
 
-## Project setup
-```
-npm install
-```
+云顶之弈 - 装备速查
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+线上地址：[andself.github.io/auto-chess-lol/](https://andself.github.io/auto-chess-lol/)

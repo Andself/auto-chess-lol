@@ -16,6 +16,41 @@ body {
 ol, ul, li {
   list-style: none;
 }
+.vertical-scroll {
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+.vertical-scroll-box {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+.flex-1 {
+  flex: 1;
+}
+.one-line {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.two-line {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.no-select {
+  user-select: none;
+}
+.no-scroll-bar::-webkit-scrollbar {
+  display: none;
+}
 
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
